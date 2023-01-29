@@ -13,8 +13,16 @@ export async function getTypes() {
   return types;
 }
 
+export async function getUserTicket(userId: number) {
+  const enrollmentId = await ticketRepository.findEnrollmentId(userId);
+  const ticket = await ticketRepository.findTicket(enrollmentId);
+
+  return ticket;
+}
+
 const ticketService = {
   getTypes,
+  getUserTicket,
 };
 
 export default ticketService;
