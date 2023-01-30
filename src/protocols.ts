@@ -1,3 +1,5 @@
+import { Payment } from '@prisma/client';
+
 export type ApplicationError = {
   name: string;
   message: string;
@@ -50,3 +52,5 @@ export type TicketType = {
 };
 
 export type TicketCreation = Partial<Ticket>;
+
+export type NewPayment = Pick<Payment, 'ticketId' | 'cardIssuer' | 'cardLastDigits'>;
